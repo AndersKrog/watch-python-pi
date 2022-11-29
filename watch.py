@@ -33,7 +33,7 @@ def signal_term_handler(signal, frame):
     sys.exit(0)
  
 signal.signal(signal.SIGTERM, signal_term_handler)
-
+signal.signal(signal.SIGINT, signal_term_handler)
 
 pixels = [COLORS['Black'] for item in range(NO_OF_LIGHTS)]
 
