@@ -1,14 +1,19 @@
+Guide to setup pythonwatch.
 
-# to program run globally 
+---------------------------------------------------
+# to run program run globally
+---------------------------------------------------
+ 
 # IE pythonwatch
 # change mode to executable
 # remove file-extension
 # copy to somewhere with PATH
 # IE /usr/bin
 
-
-# To run the program as a service put the pythonwatch.service in 
-# /lib/systemd/system/
+---------------------------------------------------
+# To run the program as a service 
+---------------------------------------------------
+# put the pythonwatch.service file in /lib/systemd/system/
 
 # change the rights on the service file: everyone can read, owner can right, noone can execute
 sudo chmod 644 /lib/systemd/system/pythonwatch.service
@@ -21,13 +26,16 @@ sudo systemctl enable pythonwatch.service
 # start the service
 sudo systemctl start pythonwatch.service
 
-
 # check in service is running
 sudo systemctl status pythonwatch.service
 # stop the service
 sudo systemctl stop hello.python
 
-# You can test if the program exittext is showing by killing the process
+
+
+---------------------------------------------------
+# Test if the program exittext is showing
+---------------------------------------------------
 # list current processes with:
 top 
 # then kill process by id or processname
