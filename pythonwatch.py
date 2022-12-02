@@ -1,8 +1,4 @@
 #! /bin/python
-# change mode to executable
-# copy to somewhere with PATH
-# remove file-extension
-# IE /usr/bin
 
 from time import sleep
 from sense_hat import SenseHat
@@ -21,7 +17,7 @@ hat = SenseHat()
 pixels = [COLORS['Black'] for item in range(NO_OF_LIGHTS)]
 mode_24 = True
 mode_tens = False
-
+running = True
 
 def signal_term_handler(signal, frame):
     """handle shutdown from system or keyboard interrupt"""
@@ -145,9 +141,9 @@ def modeHandler(event):
             mode_tens = True
         elif (event.direction == 'down'):
             mode_tens = False
-        if (event.direction == 'middle'):
+        #if (event.direction == 'middle'):
             # should turn off. doesn't work
-            running = False
+            #running = False
 
 def init():
     """Sets globals and handlers"""
@@ -163,7 +159,7 @@ def init():
     hat.show_message("Programmet starter",0.01)
 
     # set mode based on start arguments 
-    if len(sys.argv) > 0:
+    if len(sys.argv) > 1:
         if sys.argv[1] == '1':
             mode_24 = True
             mode_tens = False
@@ -183,7 +179,7 @@ def init():
 
 def mainLoop():
     """main program loop"""
-    global pixels,hat
+    global pixels,hat,running
     while running:
         pixels = clear()
         setClock()
@@ -192,4 +188,3 @@ def mainLoop():
 
 init()
 mainLoop()
-
